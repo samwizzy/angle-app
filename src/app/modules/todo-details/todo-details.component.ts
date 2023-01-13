@@ -22,6 +22,7 @@ export class TodoDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.setTitle(`Todo | ${this.todo.title}`);
     this.getProductById();
   }
 
@@ -31,7 +32,6 @@ export class TodoDetailsComponent implements OnInit {
       .getTodoById(todoId!)
       .subscribe((response) => {
         this.todo = response;
-        this.setTitle(response.title);
       });
   }
 
