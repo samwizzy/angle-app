@@ -1,0 +1,28 @@
+<header class="px-6 sm:px-4 border-b">
+  <div class="w-full sm:max-w-7xl mx-auto">
+    <div class="flex items-center justify-between">
+      <div class="text-lg" @swipeIn>
+        Sam<span class="text-xs text-red-500">&#9679;</span>
+      </div>
+      <nav>
+        <ul class="flex items-center gap-x-8">
+          
+          <li><a [routerLink]="['/']" routerLinkActive="router-link-active" class="block p-3">Getting Started</a></li>
+          <li><a [routerLink]="['/todos']" routerLinkActive="router-link-active" class="block p-3">Repository</a></li>
+          <li><a [routerLink]="['/products']" routerLinkActive="router-link-active" class="block p-3">Careers</a></li>
+          <li><a [routerLink]="['/lifecycles']" routerLinkActive="router-link-active" class="block p-3">Reviews</a></li>
+          <li>
+            <button
+              mat-flat-button
+              color="accent"
+              (click)="logout()"
+              class="block p-3"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

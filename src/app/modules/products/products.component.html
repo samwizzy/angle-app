@@ -1,0 +1,58 @@
+<div class="px-6 sm:px-4 py-16">
+  <div class="w-full sm:max-w-7xl mx-auto">
+    <button
+      class="bg-gray-500 text-white font-bold rounded-md px-4 py-2"
+      (click)="toggle()"
+    >
+      Toggle
+    </button>
+
+    <hr class="h-px bg-gray-200 my-4" />
+
+    <div class="grid grid-cols-3 gap-4">
+      <div
+        class="sm:col-span-1 bg-white p-8"
+        *ngFor="let post of posts; let i = index; trackBy: trackByFn"
+        @fadeItem
+      >
+        <div class="flex items-center mb-6">
+          <h2 class="text-2xl font-bold flex-1">{{ post.title }}</h2>
+          <button
+            mat-icon-button
+            aria-label="delete"
+            (click)="removeTodo(post.id)"
+          >
+            <mat-icon class="mat-18">close</mat-icon>
+          </button>
+        </div>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa fugit
+          odio, cumque, doloribus beatae minus, deserunt laboriosam praesentium
+          natus exercitationem ratione qui voluptatem porro quos iure? Optio
+          dolores et exercitationem?
+        </p>
+      </div>
+
+      <div
+        class="col-span-1 bg-white h-64 max-h-full flex items-center justify-center cursor-pointer"
+        (click)="addTodo()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-12 h-12"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

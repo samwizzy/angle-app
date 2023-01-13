@@ -1,0 +1,40 @@
+<div class="px-6 sm:px-4 py-16">
+  <div class="w-full sm:max-w-7xl mx-auto">
+    <div>
+      <table class="w-100 min-w-full">
+        <thead class="font-bold">
+          <tr>
+            <th align="left">Todo ID</th>
+            <th align="left">User ID</th>
+            <th align="left">Title</th>
+            <th align="left">Status</th>
+            <th align="left">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let todo of todos$ | async;
+              let i = index;
+              trackBy: trackByFn
+            "
+          >
+            <td class="border-y py-3">{{ todo?.id }}</td>
+            <td class="border-y py-3">{{ todo?.userId }}</td>
+            <td class="border-y py-3">{{ todo?.title }}</td>
+            <td class="border-y py-3">{{ todo?.completed }}</td>
+            <td class="border-y py-3">
+              <button
+              [routerLink]="['/todos/'+ todo?.id]"
+                mat-raised-button
+                [color]="todo?.status ? 'warn' : 'primary'"
+              >
+                {{ todo?.status ? "Done" : "Update" }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

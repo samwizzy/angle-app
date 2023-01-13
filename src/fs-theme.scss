@@ -1,0 +1,49 @@
+@use "@angular/material" as mat;
+
+@function fs-dark-theme(
+  $primary,
+  $accent,
+  $warn: mat.define-palette($mat-orange),
+  $danger: mat.define-palette(mat.$mat-red),
+  $success: mat.define-palette(mat.$mat-green)
+) {
+  $dark-theme: mat.define-dark-theme(
+    (
+      color: (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+      ),
+    )
+  );
+
+  $danger-success: (
+    success: $success,
+    danger: $danger,
+  );
+  @return map-merge($dark-theme, $danger-success);
+}
+
+@function fs-light-theme(
+  $primary,
+  $accent,
+  $warn: mat.define-palette($mat-orange),
+  $danger: mat.define-palette(mat.$mat-red),
+  $success: mat.define-palette(mat.$mat-green)
+) {
+  $light-theme: mat.define-light-theme(
+    (
+      color: (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+      ),
+    )
+  );
+
+  $danger-success: (
+    success: $success,
+    danger: $danger,
+  );
+  @return map-merge($light-theme, $danger-success);
+}
